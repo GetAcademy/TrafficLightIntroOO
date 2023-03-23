@@ -7,31 +7,14 @@
     2: public prop med private set
  * Constructor
  * Properties
- 
-  Pause til 13:33
- 
  */
 
 var trafficLight = new TrafficLight();
-trafficLight.Show();
-Console.ReadKey();
-trafficLight.Next();
-trafficLight.Show();
-Console.ReadKey();
-trafficLight.Next();
-trafficLight.Show();
+while (true)
+{
+    trafficLight.Show();
+    Console.ReadKey();
+    trafficLight.Next();
+}
 
-//var isRed = trafficLight.GetIsRed();
-//trafficLight.SetIsRed(false);
-var isRed = trafficLight.IsRed;
-//trafficLight.Interest = 5.3f;
-
-
-Console.ReadKey();
-trafficLight.Next();
-trafficLight.Show();
-Console.ReadKey();
-trafficLight.Next();
-trafficLight.Show();
-//TrafficLightConsole.Show(true, false, true);
 
