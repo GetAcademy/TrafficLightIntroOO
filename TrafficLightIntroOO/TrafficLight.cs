@@ -4,22 +4,62 @@ namespace TrafficLightIntroOO
 {
     internal class TrafficLight
     {
-        private bool _isRed;
-        private bool _isYellow;
-        private bool _isGreen;
+        public bool IsRed { get; private set; }
+        public bool IsYellow { get; private set; }
+        public bool IsGreen { get; private set; }
 
         public TrafficLight()
         {
-            _isRed = true;
-            _isYellow = false;
-            _isGreen = false;
+            IsRed = true;
+            IsYellow = false;
+            IsGreen = false;
         }
+
+        //private float _interest;
+        //public float Interest
+        //{
+        //    get
+        //    {
+
+        //        return _interest;
+        //    }
+        //    set
+        //    {
+        //        _interest = value;
+        //    }
+        //}
+
+        //public bool GetIsRed()
+        //{
+        //    return _isRed;
+        //}
+
+        //public void SetIsRed(bool value)
+        //{
+        //    _isRed = value;
+        //}
 
         public void Next()
         {
-            if (_isRed && !_isYellow && !_isGreen)
+            if (IsRed && !IsYellow && !IsGreen)
             {
-                _isYellow = true;
+                IsYellow = true;
+            }
+            else if (IsRed && IsYellow && !IsGreen)
+            {
+                IsRed = false;
+                IsYellow = false;
+                IsGreen = true;
+            }
+            else if (IsGreen)
+            {
+                IsYellow = true;
+                IsGreen = false;
+            }
+            else
+            {
+                IsRed = true;
+                IsYellow = false;
             }
         }
 
@@ -29,9 +69,9 @@ namespace TrafficLightIntroOO
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("┏━┓");
-            DrawLine(_isRed ? ConsoleColor.Red : ConsoleColor.Black);
-            DrawLine(_isYellow ? ConsoleColor.Yellow : ConsoleColor.Black);
-            DrawLine(_isGreen ? ConsoleColor.Green : ConsoleColor.Black);
+            DrawLine(IsRed ? ConsoleColor.Red : ConsoleColor.Black);
+            DrawLine(IsYellow ? ConsoleColor.Yellow : ConsoleColor.Black);
+            DrawLine(IsGreen ? ConsoleColor.Green : ConsoleColor.Black);
             Console.WriteLine("┗━┛");
         }
 
